@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://unsecure.ee.vsa.de/" elementFormDefault="unqualified" targetNamespace="http://unsecure.ee.vsa.de/" version="1.0">
+<xs:element name="echoText" type="tns:echoText"/>
+<xs:element name="echoTextResponse" type="tns:echoTextResponse"/>
+<xs:complexType name="echoText">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="echoTextResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

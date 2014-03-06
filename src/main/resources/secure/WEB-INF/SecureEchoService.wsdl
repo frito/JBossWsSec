@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SecureEchoService"
+                  targetNamespace="http://secure.ee.vsa.de/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://secure.ee.vsa.de/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://secure.ee.vsa.de/" schemaLocation="SecureEchoService_schema1.xsd"></import>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="echoTextResponse">
+    <wsdl:part name="parameters" element="tns:echoTextResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="echoText">
+    <wsdl:part name="parameters" element="tns:echoText">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SecureEcho">
+    <wsdl:operation name="echoText">
+      <wsdl:input name="echoText" message="tns:echoText">
+      </wsdl:input>
+      <wsdl:output name="echoTextResponse" message="tns:echoTextResponse">
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SecureEchoServiceSoapBinding" type="tns:SecureEcho">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="echoText">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="echoText">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="echoTextResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecureEchoService">
+    <wsdl:port name="SecureEchoPort" binding="tns:SecureEchoServiceSoapBinding">
+      <soap:address location="http://localhost:9090/SecureEchoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+2014-03-05 15:33:09,162 INFO [main] o.g.c.p.BuildScriptProcessor Evaluating root project 'JBossWsSec' using build file '/data/fiverx/JBossWsSec/build.gradle'.
+2014-03-05 15:33:09,171 INFO [main] o.g.g.s.i.DefaultScriptCompilationHandler Compiling build file '/data/fiverx/JBossWsSec/build.gradle' using BuildScriptClasspathScriptTransformer.
+2014-03-05 15:33:09,407 INFO [main] o.g.g.s.i.DefaultScriptCompilationHandler Compiling build file '/data/fiverx/JBossWsSec/build.gradle' using BuildScriptTransformer.
+2014-03-05 15:33:11,663 WARN [main] o.g.i.f.LoggingDeprecatedFeatureHandler Creating properties on demand (a.k.a. dynamic properties) has been deprecated and is scheduled to be removed in Gradle 2.0. Please read http://gradle.org/docs/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html for information on the replacement for dynamic properties.
+2014-03-05 15:33:11,664 WARN [main] o.g.i.f.LoggingDeprecatedFeatureHandler Deprecated dynamic property: "include" on "task ':unsecureWar'", value: "[**/unsecure/**/*.clas...".
+2014-03-05 15:33:11,666 WARN [main] o.g.i.f.LoggingDeprecatedFeatureHandler Deprecated dynamic property: "exclude" on "task ':unsecureWar'", value: "**/META-INF/**/*".
+2014-03-05 15:33:11,677 INFO [main] o.g.BuildLogger All projects evaluated.
+2014-03-05 15:33:11,712 INFO [main] o.g.e.TaskNameResolvingBuildConfigurationAction Selected primary task 'build'
+2014-03-05 15:33:11,714 INFO [main] o.g.BuildLogger Tasks to be executed: [task ':compileJava', task ':processResources', task ':classes', task ':jar', task ':assemble', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test', task ':check', task ':build']
+2014-03-05 15:33:11,720 INFO [main] o.g.e.t.AbstractTaskPlanExecutor :compileJava (Thread[main,5,main]) started.
+2014-03-05 15:33:12,656 INFO [main] o.g.e.t.AbstractTaskPlanExecutor :compileJava (Thread[main,5,main]) completed. Took 0.936 secs.
+2014-03-05 15:33:12,673 INFO [main] o.g.a.i.t.c.d.CompilerDaemonManager Stopped 0 Gradle compiler daemon(s).

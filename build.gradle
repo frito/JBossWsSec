@@ -1,0 +1,37 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven.repository.redhat.com/techpreview/all/"
+    }
+}
+
+dependencies {
+    compile group: 'org.jboss.as', name: 'jboss-as-ejb-client-bom', version: '7.3.0.Final-redhat-14'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'org.apache.cxf', name: 'cxf-api', version: '2.7.7.redhat-1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.jboss.ws', name: 'jbossws-api', version: '1.0.2.Final-redhat-1'
+}
+
+task unsecureWar(type: Jar,dependsOn: classes) {
+    archiveName "unsecure.war"
+
+    from('build/classes/main') {
+        include = ['**/unsecure/**/*.class', '**/logic/**/*.class']
+        exclude = '**/META-INF/**/*'
+        into 'WEB-INF/classes'
+    }
+
+    from('build/resources/main/unsecure/WEB-INF') {
+        into 'WEB-INF'
+    }
+
+    includeEmptyDirs false
+}
