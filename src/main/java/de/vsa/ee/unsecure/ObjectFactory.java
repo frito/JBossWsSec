@@ -1,5 +1,5 @@
 
-package de.vsa.ee.unsecure.client;
+package de.vsa.ee.unsecure;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the de.vsa.ee.unsecure.client package. 
+ * generated in the de.vsa.ee.unsecure package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -24,11 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _EchoTextResponse_QNAME = new QName("http://unsecure.ee.vsa.de/", "echoTextResponse");
-    private final static QName _EchoText_QNAME = new QName("http://unsecure.ee.vsa.de/", "echoText");
+    private final static QName _EchoTextResponse_QNAME = new QName("http://echo.ee.vsa.de/", "echoTextResponse");
+    private final static QName _EchoText_QNAME = new QName("http://echo.ee.vsa.de/", "echoText");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.vsa.ee.unsecure.client
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.vsa.ee.unsecure
      * 
      */
     public ObjectFactory() {
@@ -54,7 +54,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link EchoTextResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://unsecure.ee.vsa.de/", name = "echoTextResponse")
+    @XmlElementDecl(namespace = "http://echo.ee.vsa.de/", name = "echoTextResponse")
     public JAXBElement<EchoTextResponse> createEchoTextResponse(EchoTextResponse value) {
         return new JAXBElement<EchoTextResponse>(_EchoTextResponse_QNAME, EchoTextResponse.class, null, value);
     }
@@ -63,7 +63,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link EchoText }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://unsecure.ee.vsa.de/", name = "echoText")
+    @XmlElementDecl(namespace = "http://echo.ee.vsa.de/", name = "echoText")
     public JAXBElement<EchoText> createEchoText(EchoText value) {
         return new JAXBElement<EchoText>(_EchoText_QNAME, EchoText.class, null, value);
     }

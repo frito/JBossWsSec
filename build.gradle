@@ -1,8 +1,5 @@
 apply plugin: 'java'
 
-sourceCompatibility = 1.7
-version = '1.0'
-
 repositories {
     mavenCentral()
     maven {
@@ -12,26 +9,72 @@ repositories {
 
 dependencies {
     compile group: 'org.jboss.as', name: 'jboss-as-ejb-client-bom', version: '7.3.0.Final-redhat-14'
-    compile group: 'log4j', name: 'log4j', version: '1.2.17'
-    compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'org.apache.cxf', name: 'cxf-api', version: '2.7.7.redhat-1'
+    compile group: 'org.apache.ws.security', name: 'wss4j', version: '1.6.12.redhat-1'
+    compile group: 'org.jboss.ws', name: 'jbossws-api', version: '1.0.2.Final-redhat-1'
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'org.jboss.ws', name: 'jbossws-api', version: '1.0.2.Final-redhat-1'
+    testCompile group: 'org.apache.cxf', name: 'cxf-rt-ws-security', version: '2.7.7.redhat-1'
+    testCompile group: 'org.jboss.ws.cxf', name: 'jbossws-cxf-factories', version: '4.2.3.Final-redhat-1'
+    testCompile group: 'org.jboss.ws.cxf', name: 'jbossws-cxf-client', version: '4.2.3.Final-redhat-1'
 }
 
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
 task unsecureWar(type: Jar,dependsOn: classes) {
-    archiveName "unsecure.war"
+    archiveName 'unsecure.war'
+    includeEmptyDirs false
 
     from('build/classes/main') {
-        include = ['**/unsecure/**/*.class', '**/logic/**/*.class']
-        exclude = '**/META-INF/**/*'
+        include '**/unsecure/**/*.class'
+        include '**/logic/**/*.class'
         into 'WEB-INF/classes'
     }
 
     from('build/resources/main/unsecure/WEB-INF') {
         into 'WEB-INF'
     }
-
-    includeEmptyDirs false
 }
+
+task secureWar(type: Jar,dependsOn: classes) {
+    archiveName 'secure.war'
+    includeEmptyDirs false
+
+    from('build/classes/main') {
+        include '**/secure/**/*.class'
+        include '**/logic/**/*.class'
+        into 'WEB-INF/classes'
+    }
+
+    from('build/resources/main/secure/WEB-INF') {
+        into 'WEB-INF'
+    }
+
+    from('build/resources/main/secure/cpresources') {
+        into 'WEB-INF/classes'
+    }
+
+    manifest {
+        attributes("Dependencies": "org.apache.ws.security")
+    }
+}
+
+task buildWars(dependsOn: [unsecureWar, secureWar])
+
+task deploy(type: Copy, dependsOn: buildWars) {
+    from('build/libs') {
+        include '*.war'
+    }
+    into 'jboss-eap-6.2/standalone/deployments'
+}
+
+task undeploy(type: Delete) {
+    delete fileTree(dir: "jboss-eap-6.2/standalone/deployments", include: "*.war")
+}
+
+task enterpriseTests(type: Test, dependsOn: deploy) {
+    include '**/Test*.class'
+}
+
+enterpriseTests.finalizedBy undeploy
+

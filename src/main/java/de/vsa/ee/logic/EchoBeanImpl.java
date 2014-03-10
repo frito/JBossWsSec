@@ -7,25 +7,21 @@
 
 package de.vsa.ee.logic;
 
+import org.jboss.logging.Logger;
+
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
-/**
- * Kurzer Satz der die Klasse beschreibt.
- * <p/>
- * Detailierte Beschreibung der Klasse
- * <p/>
- * <h3>Extra-Info</h3>
- *
- * @author zeitler
- * @since v1.0
- */
+
 @Stateless
 @Remote(Echo.class)
 public class EchoBeanImpl implements Echo {
 
+    private static Logger LOG = Logger.getLogger(EchoBeanImpl.class);
+
     @Override
     public String echoText(String text) {
+        LOG.info("echoText: text=" + text);
         return text;
     }
 

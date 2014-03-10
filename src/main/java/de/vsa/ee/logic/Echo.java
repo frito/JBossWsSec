@@ -7,16 +7,7 @@
 
 package de.vsa.ee.logic;
 
-/**
- * Kurzer Satz der die Klasse beschreibt.
- * <p/>
- * Detailierte Beschreibung der Klasse
- * <p/>
- * <h3>Extra-Info</h3>
- *
- * @author zeitler
- * @since v1.0
- */
+
 public interface Echo {
 
     String echoText(String text);

@@ -7,7 +7,6 @@
 
 package de.vsa.ee.logic;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.naming.Context;
@@ -16,16 +15,7 @@ import java.util.Hashtable;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Kurzer Satz der die Klasse beschreibt.
- * <p/>
- * Detailierte Beschreibung der Klasse
- * <p/>
- * <h3>Extra-Info</h3>
- *
- * @author zeitler
- * @since v1.0
- */
+
 public class TestEJB {
 
     @Test
