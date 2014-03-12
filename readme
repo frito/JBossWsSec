@@ -1,13 +1,12 @@
 Instructions for usage:
 -----------------------
 
-1. Install JDK 1.7, set JAVA_HOME in your environment and add $JAVA_HOME/bin to your PATH (optional, if needed)
-2. Install Gradle 1.9 or newer, set GRADLE_HOME and add $GRADLE_HOME/bin to your PATH (optional, if needed)
+1. Install JDK 1.7 [http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html], set JAVA_HOME in your environment and add $JAVA_HOME/bin to your PATH (optional, if needed)
+2. Install Gradle 1.9 [http://www.gradle.org/downloads] or newer, set GRADLE_HOME and add $GRADLE_HOME/bin to your PATH (optional, if needed)
 3. Unpack the project and change to the project directory
-4. Download JBoss 7.3.0 and unpack into the project directory https://www.jboss.org/jbossas/downloads.html (optional, if needed)
+4. Download JBoss 7.3.0 [https://www.jboss.org/jbossas/downloads.html] and unpack into the project directory (optional, if needed)
 5. Start JBoss by calling "jboss-eap-6.2/bin/standalone.sh"
-6. Start a new console and call "gradle enterpriseTests". This will build the whole project, pack the WARs, deploy them to JBoss, run the
-   JUnit testcases and undeploy the WARs afterwards.
+6. Start a new console and call "gradle enterpriseTests". This will build the whole project, pack the WARs, deploy them to JBoss, run the JUnit testcases and undeploy the WARs afterwards.
 7. Check "build/reports/tests/index.html" for the test results
 
 Please, check the JBoss licence agreement at http://www.redhat.com/licenses/jboss_eula.html
@@ -16,6 +15,6 @@ Windows users do the same with the windows specific syntax for environment setti
 
 Use the gradle integration of my favorite IDE to enjoy the full java experience by calling "gradle idea". Otherwise, use NetBeans or Eclipse.
 
-Attention: before running the secured testcase within your IDE, you must ensure that some JARs are placed in your executing classpath
-before the JDK classes: jbossws-cxf-factories, cxf-api and jbossws-api.
+Attention: before running the secured testcase within your IDE, you must ensure that some JARs are placed in your executing classpath before the JDK classes: jbossws-cxf-factories, cxf-api and jbossws-api.
+
 With gradle, it works for me ;-)
